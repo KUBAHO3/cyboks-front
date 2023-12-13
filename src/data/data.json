@@ -1,0 +1,22 @@
+{
+    "services": [
+      {
+        "slug": "chuk",
+        "title": "CHUK",
+        "description": "description1",
+        "documents": "link1"
+      },
+      {
+        "slug": "norrsken",
+        "title": "NORRSKEN",
+        "description": "description2",
+        "documents": "link2"
+      },
+      {
+        "slug": "skol_Ltd",
+        "title": "SKOL LTD",
+        "description": "description3",
+        "documents": "link3"
+      },
+    ]
+  }
