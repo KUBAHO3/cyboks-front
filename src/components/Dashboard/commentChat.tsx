@@ -39,18 +39,18 @@ function ViewCommentChat({userId, documentId, options}: Props_) {
         <div className="border rounded-lg pb-4">
               {comments?.map((comment: any) =>(
 
-            <div className={(comment.user.id !== userId)?"relative max-w-sm bg-white border mt-4 border-gray-200 rounded-r-lg shadow dark:bg-gray-800 dark:border-gray-700 mr-16 ml-2":"relative max-w-sm bg-violet-100 border mt-4 border-gray-200 rounded-l-lg shadow dark:bg-gray-800 dark:border-gray-700 ml-16 mr-2"}>
+            <div className={(comment.user.id !== userId)?"relative max-w-sm bg-white border mt-4 border-gray-200 rounded-r-lg shadow dark:bg-gray-800 dark:border-gray-700 mr-16 ml-2":"relative max-w-sm bg-violet-200 border mt-4 border-gray-200 rounded-l-lg shadow dark:bg-gray-800 dark:border-gray-700 ml-16 mr-2"}>
               <div className="text-center">
                 {comment.selectedFiles?.map((file: string, index: number) =>(<>
-                    <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">{file}</span>
+                    <span className="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">{file}</span>
                     {(index%3)===1?<br/>:''}
                 </>
                 
                 ))}
               </div>
               <p className={(comment.user.id !== userId)?"absolute top-0 bg-slate-300 rounded-md left-0 text-xs text-black":"absolute top-0 bg-violet-300 rounded-md right-0 text-xs text-black"}>{comment.user.userName}</p>
-              <div className={(comment.user.id !== userId)?"bg-slate-100 rounded-md text-sm mt-1 mx-1 mb-4 font-semibold px-2":"bg-violet-50 rounded-md text-sm mt-1 mx-1 mb-4 font-semibold px-2"}>{comment.message}</div>
-              <p className={(comment.user.id !== userId)?"absolute bottom-0 bg-slate-100 rounded-md left-0 text-xs text-black":"absolute bottom-0 bg-violet-50 rounded-md right-0 text-xs text-black"}>{new Date(comment.createdAt).toLocaleDateString()}|{new Date(comment.createdAt).toLocaleTimeString()}</p>
+              <div className={(comment.user.id !== userId)?"bg-slate-100 rounded-md text-sm mt-1 mx-1 mb-4 font-semibold px-2":"bg-violet-100 rounded-md text-sm mt-1 mx-1 mb-4 font-semibold px-2"}>{comment.message}</div>
+              <p className={(comment.user.id !== userId)?"absolute bottom-0 bg-slate-100 rounded-md left-0 text-xs text-black":"absolute bottom-0 bg-violet-100 rounded-md right-0 text-xs text-black"}>{new Date(comment.createdAt).toLocaleDateString()}|{new Date(comment.createdAt).toLocaleTimeString()}</p>
             </div>
               ))}
 
