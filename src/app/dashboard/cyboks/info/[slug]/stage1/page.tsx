@@ -101,7 +101,7 @@ fetchData();
             {user?<PrimaryRevDocModal docsId={user?.id} />:""}
             </div>
             <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-            {user?<AdDocComments options={options} docsId={user?.id} userId={7}/>:""}
+            {user?<AdDocComments options={options} docsId={user?.id} userId={11}/>:""}
             </div>
           </div>
           <div className="flex flex-row gap-8 mb-4">

@@ -168,7 +168,7 @@ export default function dpoStage2() {
                     </button>:''}
           </div>
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-          {documment?<AdDocComments options={options}  docsId={documment?.id} userId={documment.user.id}/>:''}
+          {documment?<AdDocComments options={options}  docsId={documment?.id} userId={11}/>:''}
           </div>
         </div>
         <div className="flex flex-row gap-8 mb-4">

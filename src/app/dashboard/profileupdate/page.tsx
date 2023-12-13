@@ -42,7 +42,7 @@ const ProfileUpdate = () => {
 
       setIsLoading(true);
       try {
-        const response = await axiosAPI.get<any>(`/getData/users/9`);
+        const response = await axiosAPI.get<any>(`/getData/users/${7}`);
         setUser(response);
         console.log('Fetched data', response);
         
@@ -108,7 +108,9 @@ useEffect(() => {
             setIsLoading(false);
           }toast.error(err.response.data.message || "Something went wrong.");
       } finally {
+        toast.success('Your account is updated')
         setIsLoading(false);
+        router.push('/')
       }
   })
 
