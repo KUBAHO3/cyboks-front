@@ -35,13 +35,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/dashboard/dpo`, request.url));
   }
 
-  if (
-    decodedToken &&
-    url === `/dashboard/ncsa` &&
-    userRole === USER_ROLES.DPO
-  ) {
-    return NextResponse.redirect(new URL(`/dashboard/dpo`, request.url));
-  }
+  // if (
+  //   decodedToken &&
+  //   url === `/dashboard/ncsa` &&
+  //   userRole === USER_ROLES.DPO
+  // ) {
+  //   return NextResponse.redirect(new URL(`/dashboard/dpo`, request.url));
+  // }
 
   if (
     decodedToken &&
