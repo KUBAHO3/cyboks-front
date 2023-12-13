@@ -20,24 +20,24 @@ const NCSADashboard = () => {
   const cards = [
     {
       label: "Companies Under Review",
-      value: 15,
+      value: 0,
       link: "#",
     },
     {
       label: "Certified Companies",
-      value: 15,
+      value: 0,
       link: "#",
     },
 
     {
       label: "Rejected Companies",
-      value: 15,
+      value: 0,
       link: "#",
     },
 
     {
       label: "All Companies",
-      value: 15,
+      value: 0,
       link: "#",
     },
   ];
