@@ -43,10 +43,6 @@ const Sidebar = ({name}: Prop_) => {
           </Link>
         </li>
 
-        {/* {(url === "/dashboard/cyboks" || url === "/dashboard/ncsa") && (
-          <SidebarDropdown />
-        )} */}
-
         {url === "/dashboard/dpo" && (
           <>
             <li>
