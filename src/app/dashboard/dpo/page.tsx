@@ -66,7 +66,6 @@ const DPODashboard = () => {
         try {
           const response = await axiosAPI.get<any>(`/getData/users/${userId}`);
           setUser(response);
-          console.log("Fetched data", response);
         } catch (error) {
           console.error(error);
         }

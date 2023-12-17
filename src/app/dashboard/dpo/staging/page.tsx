@@ -1,5 +1,6 @@
 'use client'
 import Navbar from "@/components/Dashboard/navbar";
+import { useSession } from "next-auth/react";
 import Sidebar from "@/components/Dashboard/sidebar";
 import AxiosAPI from "@/utils/axiosApi";
 import Link from "next/link";
@@ -8,25 +9,34 @@ import React, { useEffect, useState } from "react";
 function DpoDashboard() {
   const axiosAPI = new AxiosAPI();
   const [user, setUser] = useState<any>(false);
-  // const [docs, setDocs] = useState<any>([]);
+  const [userId, setUserId] = useState<any>(false);
+  const [docsId, setDoocsId] = useState<any>(false);
   const [isLoading, setIsLoading] = useState(false);
-  const userId = 7
-  console.log('the user ID', userId)
+  // session
+  const session = useSession();
+  useEffect(() => {
+    if (session.data?.user.id, session.data?.user.docsId) {
+      setUserId(session.data?.user.id);
+      setDoocsId(session.data?.user.docsId);
+    }
+  }, [session.data?.user.id, session.data?.user.docsId]);
+
   useEffect(() => {
       const fetchData = async () => {
   
         setIsLoading(true);
+        if(userId){
         try {
           const response = await axiosAPI.get<any>(`/getData/users/${userId}`);
           setUser(response);
           
         } catch (error) {
           console.error(error);
-        }
+        }}
         setIsLoading(false);
       };
       fetchData();
-    }, []);
+    }, [userId]);
     console.log('Fetched data', user);
   return (
     <main className="sm:flex sm:flex-row w-full h-screen bg-fixed bg-center bg-cover bg-[url('../assets/images/signup_bg.png')]">

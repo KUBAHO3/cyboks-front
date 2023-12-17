@@ -8,18 +8,28 @@ import AdDocComments from "@/components/Dashboard/commentModel";
 import ViewCommentChat from "@/components/Dashboard/commentChat";
 import StageNav from "@/components/Dashboard/StageNav";
 import ViewDocs from "@/components/Dashboard/viewPCDocs";
+import { useSession } from "next-auth/react";
 
 function dpoDashboard() {
   const axiosAPI = new AxiosAPI();
   const [user, setUser] = useState<any>(false);
   const [docs, setDocs] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const userId = 7
-  console.log('the user ID', userId)
+  const [userId, setUserId] = useState<any>(false);
+  const [docsId, setDoocsId] = useState<any>(false);
+  const session = useSession();
+
+  useEffect(() => {
+    if (session.data?.user.id, session.data?.user.docsId) {
+      setUserId(session.data?.user.id);
+      setDoocsId(session.data?.user.docsId);
+    }
+  }, [session.data?.user.id, session.data?.user.docsId]);
   useEffect(() => {
       const fetchData = async () => {
   
         setIsLoading(true);
+        if(userId){
         try {
           const response = await axiosAPI.get<any>(`/getData/users/${userId}`);
           setUser(response);
@@ -27,11 +37,11 @@ function dpoDashboard() {
           
       } catch (error) {
           console.error(error);
-      }
+      }}
       setIsLoading(false);
   };
   fetchData();
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
       if(user){
@@ -101,12 +111,12 @@ function dpoDashboard() {
             <AdDocModal/>
           </div>
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-            <AdDocComments options={options}  docsId={3} userId={userId}/>
+            {userId?<AdDocComments options={options}  docsId={docsId} userId={userId}/>:""}
           </div>
         </div>
         <div className="flex flex-row gap-8 mb-4">
-        <ViewDocs userId={userId} viewdocs={docs}/>
-          <ViewCommentChat options={options} userId={userId} documentId={3}/>
+        {userId?<ViewDocs userId={userId} viewdocs={docs}/>:""}
+          {userId?<ViewCommentChat options={options} userId={userId} documentId={docsId}/>:""}
         </div>
       </div>
     </main>
