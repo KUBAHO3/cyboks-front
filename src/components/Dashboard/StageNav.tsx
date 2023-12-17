@@ -26,7 +26,7 @@ function StageNav({docsId}: Props) {
     <li>
       <div className="flex items-center">
         <svg className="rtl:rotate-180 block w-3 h-3 mx-1 text-gray-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
         </svg>2️⃣
         <Link href={(docsId !== undefined)?`/dashboard/cyboks/info/${docsId}/stage2`:'/dashboard/dpo/documents/stage2'} 
         className={router.includes('stage2')
@@ -38,7 +38,7 @@ function StageNav({docsId}: Props) {
     <li aria-current="page">
       <div className="flex items-center">
         <svg className="rtl:rotate-180  w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
         </svg>3️⃣
         <Link href={(docsId !== undefined)?`/dashboard/cyboks/info/${docsId}/stage3`:'/dashboard/dpo/documents/stage3'}  
         className={router.includes('stage3')

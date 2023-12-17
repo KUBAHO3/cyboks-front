@@ -16,6 +16,8 @@ import ViewCommentChat from "@/components/Dashboard/commentChat";
 const DPODashboard = () => {
   // local states
   const [user, setUser] = useState<any>(false);
+  const [userId, setUserId] = useState<any>(false);
+  const [docsId, setDoocsId] = useState<any>(false);
   const [videoId, setVideoId] = useState<any>(false);
   const [docs, setDocs] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -47,23 +49,32 @@ const DPODashboard = () => {
     },
   ];
 
-  console.log("@@@@ ===> usr docs: ", docs);
+    // use effects
+    useEffect(() => {
+      if (session.data?.user.id, session.data?.user.docsId) {
+        setUserId(session.data?.user.id);
+        setDoocsId(session.data?.user.docsId);
+      }
+    }, [session.data?.user.id, session.data?.user.docsId]);
+  
 
   // use effects
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      try {
-        const response = await axiosAPI.get<any>(`/getData/users/${7}`);
-        setUser(response);
-        console.log("Fetched data", response);
-      } catch (error) {
-        console.error(error);
+      if(userId){
+        try {
+          const response = await axiosAPI.get<any>(`/getData/users/${userId}`);
+          setUser(response);
+          console.log("Fetched data", response);
+        } catch (error) {
+          console.error(error);
+        }
       }
       setIsLoading(false);
     };
     fetchData();
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     if (user) {
@@ -147,10 +158,10 @@ const DPODashboard = () => {
           <div className="flex flex-row gap-8 mb-4">
             
             <div>
-              <ViewDocs userId={7} viewdocs={docs}/>
+              <ViewDocs userId={userId} viewdocs={docs}/>
               {videoId?<YouTube videoId={videoId[videoId?.length - 1]} className="mt-8 rounded-lg"/>:""}
             </div>
-            <ViewCommentChat options={options} userId={7} documentId={3}/>
+            <ViewCommentChat options={options} userId={userId} documentId={docsId}/>
           </div>
         </div>
       </div>

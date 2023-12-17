@@ -15,8 +15,8 @@ const pdfUrl = 'https://pdfobject.com/pdf/sample.pdf';
 
 return (
     <div className="grid grid-cols-2 gap-4">
-            {viewdocs?.map((doc: any) =>(
-              <div className="max-w-sm bg-white border mt-4 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            {viewdocs?.map((doc: any, index: number) =>(
+              <div key={index+1} className="max-w-sm bg-white border mt-4 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                   <a href={doc.doclink}>
                       <h5 className="my-2 text-2xl  px-6 font-bold tracking-tight text-gray-900 dark:text-white hover:text-blue-300">{doc.docname}</h5>
                   </a>

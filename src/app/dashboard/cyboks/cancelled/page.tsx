@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "@/components/Dashboard/sidebar";
 import Navbar from "@/components/Dashboard/navbar";
-import Popup from "@/components/Dashboard/popupbutton_Cyboks";
+import Popup from "@/components/Dashboard/popupbutton_aqs";
 
 function Cancelled() {
   return (
@@ -194,9 +194,9 @@ function Cancelled() {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M5 1 1 5l4 4"
                       />
                     </svg>
@@ -258,9 +258,9 @@ function Cancelled() {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="m1 9 4-4-4-4"
                       />
                     </svg>

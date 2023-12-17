@@ -4,6 +4,7 @@ export type UserResponse = {
         name: string;
         email: string;
         role: string;
+        docsId: number;
     },
     token: string,
     message: string;
