@@ -5,8 +5,9 @@ type Props_ = {
   options: any[]
   userId: number
   docsId: number
+  room?: string
 }
-function AdDocComments({options, userId, docsId}: Props_) {
+function AdDocComments({options, userId, docsId, room}: Props_) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -65,7 +66,7 @@ function AdDocComments({options, userId, docsId}: Props_) {
                 <h3 className="mb-4 text-xl font-medium text-white dark:text-white">
                   Add a Any comments
                 </h3>
-                <CommentForm options={options} docsId={docsId} userId={userId}/>
+                <CommentForm options={options} docsId={docsId} userId={userId} room={room}/>
               </div>
             </div>
           </div>

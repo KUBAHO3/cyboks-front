@@ -9,6 +9,7 @@ import ViewAdminDocs from "@/components/Dashboard/adminDocs";
 import ViewCommentChat from "@/components/Dashboard/commentChat";
 import PrimaryRevDocModal from "@/components/Dashboard/primaryReviewerDocs";
 import StageNav from "@/components/Dashboard/StageNav";
+import { useSession } from "next-auth/react";
 
 interface pageProps {
   params: { info: string, slug: string};
@@ -16,8 +17,16 @@ interface pageProps {
 export default function Info() {
   const [user, setUser] = useState<any>(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [userId, setUserId] = useState<any>(false);
   const axiosAPI = new AxiosAPI();
     const router = usePathname();
+    const session = useSession();
+
+    useEffect(() => {
+      if (session.data?.user.id) {
+        setUserId(session.data?.user.id);
+      }
+    }, [session.data?.user.id]);
   
     var parts = router.split('/');
     var lastString = parts[parts.length - 2];
@@ -101,12 +110,12 @@ fetchData();
             {user?<PrimaryRevDocModal docsId={user?.id} />:""}
             </div>
             <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-            {user?<AdDocComments options={options} docsId={user?.id} userId={11}/>:""}
+            {userId?<AdDocComments options={options} docsId={user?.id} userId={userId} room="reviewer-dpo"/>:""}
             </div>
           </div>
           <div className="flex flex-row gap-8 mb-4">
             {user?<ViewAdminDocs userId={user?.user?.id}/>:''}
-            {user?<ViewCommentChat options={options} userId={user?.user?.id} documentId={user?.id}/>:''}
+            {user?<ViewCommentChat options={options} userId={user?.user?.id} documentId={user?.id} room="reviewer-dpo"/>:''}
           </div>
         </div>
       </div>

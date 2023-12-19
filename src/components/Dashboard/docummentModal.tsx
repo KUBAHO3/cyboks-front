@@ -5,26 +5,24 @@ import { toast } from 'react-toastify';
 import AxiosAPI from "@/utils/axiosApi";
 import { refreshPage } from '@/utils';
 
-function AdDocModal() {
+type Props_ = {
+  docsId?: number
+}
+
+function AdDocModal({docsId}: Props_) {
   const axiosAPI = new AxiosAPI();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [filesData, setFilesData] = useState({
-    letterToCeo: '',
-    certIncorporation: "",
-    dpoID: "",
-    appForm: "",
-    regLicence: "",
-    legalInst: "",
-    repContract: ""
+  const [filesData, setFilesData] = useState<any>({
+    status: "pending"
     });
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true)
     console.log('Submit', filesData);
     try {
-      const response = axiosAPI.put(`/update/updateClientDocs/${3}`, filesData);
+      const response = axiosAPI.put(`/update/updateClientDocs/${docsId}`, filesData);
       console.log(response); // Handle the response as needed
       setIsLoading(false)
       toast.success('Docs uploaded succesfully');
@@ -34,6 +32,7 @@ function AdDocModal() {
       setIsLoading(false)
       toast.error('Oops sth went wrong');
     }
+
   };
 
   const openModal = () => {

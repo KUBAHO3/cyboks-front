@@ -108,15 +108,15 @@ function dpoDashboard() {
         </div>
         <div className="flex flex-row justify-between">
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-            <AdDocModal/>
+            {docsId?<AdDocModal docsId={docsId}/>:''}
           </div>
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-            {userId?<AdDocComments options={options}  docsId={docsId} userId={userId}/>:""}
+            {userId?<AdDocComments options={options}  docsId={docsId} userId={userId} room="reviewer-dpo"/>:""}
           </div>
         </div>
         <div className="flex flex-row gap-8 mb-4">
         {userId?<ViewDocs userId={userId} viewdocs={docs}/>:""}
-          {userId?<ViewCommentChat options={options} userId={userId} documentId={docsId}/>:""}
+          {userId?<ViewCommentChat options={options} userId={userId} documentId={docsId} room="reviewer-dpo"/>:""}
         </div>
       </div>
     </main>

@@ -9,13 +9,21 @@ import { useEffect, useState } from "react";
 import AxiosAPI from "@/utils/axiosApi";
 import { usePathname } from "next/navigation";
 import SecondaryRevDocModal from "@/components/Dashboard/secondaryRevDocs";
+import { useSession } from "next-auth/react";
 
 export default function dpoStage2() {
     const [documment, setDocumment] = useState<any>(false);
     const [docs, setDocs] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const session = useSession();
+    const [userId, setUserId] = useState<any>(false);
 
     const router = usePathname();
+    useEffect(() => {
+      if (session.data?.user.id) {
+        setUserId(session.data?.user.id);
+      }
+    }, [session.data?.user.id]);
   
     var parts = router.split('/');
     var lastString = parts[parts.length - 2];
@@ -124,12 +132,12 @@ export default function dpoStage2() {
             {documment?<SecondaryRevDocModal docsId={documment?.id}/>:''}
           </div>
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-          {documment?<AdDocComments options={options}  docsId={documment?.id} userId={11}/>:''}
+          {userId?<AdDocComments options={options}  docsId={documment?.id} userId={userId} room="reviewer-dpo"/>:''}
           </div>
         </div>
         <div className="flex flex-row gap-8 mb-4">
           {documment?<ViewDocs userId={documment.user.id} viewdocs={docs}/>:''}
-          {documment?<ViewCommentChat options={options} userId={documment.user.id} documentId={documment?.id}/>:''}
+          {documment?<ViewCommentChat options={options} userId={documment.user.id} documentId={documment?.id} room="reviewer-dpo"/>:''}
         </div>
       </div>
     </main>

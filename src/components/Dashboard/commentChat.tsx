@@ -6,9 +6,10 @@ type Props_ = {
     userId: number
     documentId: number
     options: any[]
+    room?: string
 }
 
-function ViewCommentChat({userId, documentId, options}: Props_) {
+function ViewCommentChat({userId, documentId, options, room}: Props_) {
     const axiosAPI = new AxiosAPI();
     const [comments, setComments] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -24,8 +25,10 @@ function ViewCommentChat({userId, documentId, options}: Props_) {
                   return options.some((doc: any) => doc.value === file);
                 });
               });
-            setComments(filteredArray.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
-            console.log('Fetched comments', res);
+
+            const roomedComments = filteredArray.filter((comment: any) => comment.room === room)
+            setComments(roomedComments.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
+            // console.log('Fetched comments', res);
             
         } catch (error) {
             console.error(error);

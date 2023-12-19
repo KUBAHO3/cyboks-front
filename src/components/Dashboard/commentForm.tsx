@@ -11,14 +11,16 @@ type Prop_ = {
   userId?: number
   docsId?: number
   options?: any[]
+  room?: string
 }
 
-function CommentForm({userId, docsId, options}: Prop_) {
+function CommentForm({userId, docsId, options, room}: Prop_) {
   const [optionSelected, setSelected] = useState<Option[] | null>();
   const [isLoad, setIsLoad] = useState(false)
   const [data, setData] = useState<any>({
     selectedFiles: [],
-    message: ''
+    message: '',
+    room: room
   })
 
   const router = useRouter();

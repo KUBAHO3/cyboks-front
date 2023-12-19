@@ -14,9 +14,8 @@ function NcsaCertifyModal({docsId}: Props_) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [filesData, setFilesData] = useState({
-    certificate: '',
-    certificateEndDate: ''
+  const [filesData, setFilesData] = useState<any>({
+    status: 'certified'
     });
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

@@ -14,9 +14,8 @@ function PrimaryRevDocModal({docsId}: Props_) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [filesData, setFilesData] = useState({
-    lawSummary: '',
-    unfilledMapQuestionaire: "",
+  const [filesData, setFilesData] = useState<any>({
+    
     });
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

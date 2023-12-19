@@ -81,23 +81,18 @@ const NcsaTable = ({ data, isLoading, perPage, status }: Props) => {
       className: openSans.className,
       render: (value, record, index) => {
         switch (value) {
-          case "submitted":
+          case "recieved":
             return (
               <span className="text-violet-600 font-semibold">Submitted</span>
             );
 
-          case "underreviewer":
+          case "pending":
             return (
-              <span className="text-yellow-600 font-semibold">Under cyboks</span>
+              <span className="text-yellow-600 font-semibold">Pending</span>
             );
           case "certified":
             return (
               <span className="text-green-600 font-semibold">Certified</span>
-            );
-
-          case "underncsa":
-            return (
-              <span className="text-yellow-600 font-semibold">Under NCSA</span>
             );
 
           default:

@@ -99,23 +99,18 @@ const CompanyTable = ({ data, isLoading, perPage, status }: Props) => {
       className: openSans.className,
       render: (value, record, index) => {
         switch (value) {
-          case "submitted":
+          case "recieved":
             return (
-              <span className="text-violet-500 font-semibold">Submitted</span>
+              <span className="text-violet-500 font-semibold">Recieved</span>
             );
 
-          case "underreviewer":
+          case "pending":
             return (
               <span className="text-yellow-500 font-semibold">Under cyboks</span>
             );
           case "certified":
             return (
               <span className="text-green-500 font-semibold">Certified</span>
-            );
-
-          case "underncsa":
-            return (
-              <span className="text-yellow-500 font-semibold">Under NCSA</span>
             );
 
           default:

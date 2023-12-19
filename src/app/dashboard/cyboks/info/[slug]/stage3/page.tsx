@@ -14,13 +14,20 @@ import { toast } from "react-toastify";
 import { refreshPage } from "@/utils";
 import { server } from "@/utils/axios";
 import Spinner from "@/components/Spinner";
+import { useSession } from "next-auth/react";
 
 export default function dpoStage2() {
     const [documment, setDocumment] = useState<any>(false);
     const [docs, setDocs] = useState<any>([]);
     const [videoId, setVideoId] = useState<any>(false);
+    const [userId, setUserId] = useState<any>(false);
     const [isLoading, setIsLoading] = useState(false);
-
+    const session = useSession();
+    useEffect(() => {
+      if (session.data?.user.id) {
+        setUserId(session.data?.user.id);
+      }
+    }, [session.data?.user.id]);
     const router = usePathname();
   
     var parts = router.split('/');
@@ -168,7 +175,7 @@ export default function dpoStage2() {
                     </button>:''}
           </div>
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-          {documment?<AdDocComments options={options}  docsId={documment?.id} userId={11}/>:''}
+          {userId?<AdDocComments options={options}  docsId={documment?.id} userId={userId} room="reviewer-dpo"/>:''}
           </div>
         </div>
         <div className="flex flex-row gap-8 mb-4">
@@ -179,7 +186,7 @@ export default function dpoStage2() {
           </div>
           
           :''}
-          {documment?<ViewCommentChat options={options} userId={documment.user.id} documentId={documment?.id}/>:''}
+          {documment?<ViewCommentChat options={options} userId={documment.user.id} documentId={documment?.id} room="reviewer-dpo"/>:''}
         </div>
       </div>
     </main>

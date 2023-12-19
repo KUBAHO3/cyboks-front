@@ -115,7 +115,7 @@ useEffect(() => {
             <PrimaryClientDocModal docsId={docsId}/>
           </div>
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-            <AdDocComments options={options}  docsId={docsId} userId={userId}/>
+            <AdDocComments options={options}  docsId={docsId} userId={userId} room="reviewer-dpo"/>
           </div>
         </div>
         <div className="flex flex-row gap-8 mb-4">
@@ -123,7 +123,7 @@ useEffect(() => {
             <ViewDocs userId={userId} viewdocs={docs}/>
             {videoId?<YouTube videoId={videoId[videoId?.length - 1]} className="mt-8 rounded-lg"/>:""}
           </div>
-          <ViewCommentChat options={options} userId={userId} documentId={docsId}/>
+          <ViewCommentChat options={options} userId={userId} documentId={docsId} room="reviewer-dpo"/>
         </div>
       </div>
     </main>

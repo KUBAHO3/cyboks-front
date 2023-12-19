@@ -168,7 +168,7 @@ export default function dpoStage2() {
                     </button>:''}
           </div>
           <div className=" p-2 rounded-lg sm:rounded-lg m-2">
-          {documment?<AdDocComments options={options}  docsId={documment?.id} userId={documment.user.id}/>:''}
+          {documment?<AdDocComments options={options}  docsId={documment?.id} userId={documment.user.id} room="reviewer-ncsa"/>:''}
           </div>
         </div>
         <div className="flex flex-row gap-8 mb-4">
@@ -179,7 +179,7 @@ export default function dpoStage2() {
           </div>
           
           :''}
-          {documment?<ViewCommentChat options={options} userId={documment.user.id} documentId={documment?.id}/>:''}
+          {documment?<ViewCommentChat options={options} userId={documment.user.id} documentId={documment?.id} room="reviewer-ncsa"/>:''}
         </div>
       </div>
     </main>
