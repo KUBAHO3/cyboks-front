@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import AxiosAPI from "@/utils/axiosApi";
 import YouTube from 'react-youtube';
 
-function dpoStage3() {
+export default function dpoStage3() {
     const [user, setUser] = useState<any>(false);
     const [videoId, setVideoId] = useState<any>(false);
     const [docs, setDocs] = useState<any>([]);
@@ -129,4 +129,4 @@ useEffect(() => {
     </main>
   );
 }
-export default dpoStage3;
+

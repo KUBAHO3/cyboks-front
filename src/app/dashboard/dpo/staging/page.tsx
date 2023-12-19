@@ -6,7 +6,7 @@ import AxiosAPI from "@/utils/axiosApi";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-function DpoDashboard() {
+export default function DpoDashboard() {
   const axiosAPI = new AxiosAPI();
   const [user, setUser] = useState<any>(false);
   const [userId, setUserId] = useState<any>(false);
@@ -203,4 +203,4 @@ function DpoDashboard() {
     </main>
   );
 }
-export default DpoDashboard;
+

@@ -10,7 +10,7 @@ import AxiosAPI from "@/utils/axiosApi";
 import { Select, Space } from 'antd';
 import SearchBar from "@/components/shared/searchBar";
 
-const NCSADashboard = () => {
+export default function NCSADashboard () {
   const session = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const [docs, setDocs] = useState([]);
@@ -141,4 +141,3 @@ const NCSADashboard = () => {
     </main>
   );
 };
-export default NCSADashboard;

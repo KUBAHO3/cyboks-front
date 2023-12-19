@@ -13,7 +13,7 @@ import { openSans } from "@/utils/fonts";
 import ViewDocs from "@/components/Dashboard/viewPCDocs";
 import ViewCommentChat from "@/components/Dashboard/commentChat";
 
-const DPODashboard = () => {
+export default function DPODashboard () {
   // local states
   const [user, setUser] = useState<any>(false);
   const [userId, setUserId] = useState<any>(false);
@@ -167,4 +167,4 @@ const DPODashboard = () => {
     </main>
   );
 };
-export default DPODashboard;
+

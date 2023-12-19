@@ -10,7 +10,7 @@ import StageNav from "@/components/Dashboard/StageNav";
 import ViewDocs from "@/components/Dashboard/viewPCDocs";
 import { useSession } from "next-auth/react";
 
-function dpoDashboard() {
+export default function dpoStage1() {
   const axiosAPI = new AxiosAPI();
   const [user, setUser] = useState<any>(false);
   const [docs, setDocs] = useState<any>([]);
@@ -122,4 +122,4 @@ function dpoDashboard() {
     </main>
   );
 }
-export default dpoDashboard;
+

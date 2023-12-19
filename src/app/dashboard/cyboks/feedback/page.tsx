@@ -2,7 +2,7 @@ import Sidebar from "@/components/Dashboard/sidebar";
 import Navbar from "@/components/Dashboard/navbar";
 import React from "react";
 
-function CyboksDashboard() {
+export default function CyboksFeedback() {
     return(
         <main className="sm:flex sm:flex-row w-full h-screen bg-fixed bg-center bg-cover bg-[url('../assets/images/back.png')]">
           <div>
@@ -15,4 +15,3 @@ function CyboksDashboard() {
        </main>
     );
 }
-export default CyboksDashboard

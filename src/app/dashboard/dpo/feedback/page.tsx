@@ -3,7 +3,7 @@ import Sidebar from "@/components/Dashboard/sidebar";
 import Link from "next/link";
 import React from "react";
 
-function DpoDashboard() {
+export default function DpoDashboard() {
     return(
         <main className="sm:flex sm:flex-row w-full h-screen bg-fixed bg-center bg-cover bg-[url('../assets/images/back.png')]">
           <div>
@@ -16,4 +16,3 @@ function DpoDashboard() {
        </main>
     );
 }
-export default DpoDashboard

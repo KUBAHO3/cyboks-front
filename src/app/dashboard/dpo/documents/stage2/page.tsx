@@ -11,7 +11,7 @@ import ViewDocs from "@/components/Dashboard/viewPCDocs";
 import { useEffect, useState } from "react";
 import AxiosAPI from "@/utils/axiosApi";
 
-function dpoStage2() {
+export default function dpoStage2() {
     const [user, setUser] = useState<any>(false);
     const [docs, setDocs] = useState<any>([]);
     const [userId, setUserId] = useState<any>(false);
@@ -106,4 +106,4 @@ function dpoStage2() {
     </main>
   );
 }
-export default dpoStage2;
+

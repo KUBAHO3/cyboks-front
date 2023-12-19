@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "@/components/Dashboard/navbar";
 import Sidebar from "@/components/Dashboard/sidebar";
 
-function Status() {
+export default function Status() {
   return (
     <main className="sm:flex sm:flex-row w-full h-screen bg-fixed bg-center bg-cover bg-[url('../assets/images/signup_bg.png')]">
       <div>
@@ -147,4 +147,4 @@ function Status() {
     </main>
   );
 }
-export default Status;
+

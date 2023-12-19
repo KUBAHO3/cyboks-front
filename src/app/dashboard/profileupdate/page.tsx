@@ -14,7 +14,7 @@ import { signupSchema } from "@/schemas/auth";
 import { toast } from "react-toastify";
 import Spinner from '@/components/shared/Spinner';
 
-const ProfileUpdate = () => {
+export default function ProfileUpdate () {
   const session = useSession();
   const [user, setUser] = useState<any>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -210,5 +210,3 @@ useEffect(() => {
   )
 
 }
-
-export default ProfileUpdate;
